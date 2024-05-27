@@ -22,16 +22,19 @@ body_add_pokeball = {
     "pokemon_id": "28442"
 }
 
+# создание покемона
 response_create = requests.post(url=f'{URL}/pokemons', headers=HEADER, json=body_create)
 print(response_create.text)
 print(response_create.status_code)
 message = response_create.json()['message']
 print(message)
 
+# смена имени покемона
 response_change_name = requests.put(url=f'{URL}/pokemons', headers=HEADER, json=body_change_name)
 print(response_change_name.text)
 print(response_change_name.status_code)
 
+# поймать покемона в покебол
 response_add_pokeball = requests.post(url=f'{URL}/trainers/add_pokeball', headers=HEADER, json=body_add_pokeball)
 print(response_add_pokeball.text)
 print(response_add_pokeball.status_code)
